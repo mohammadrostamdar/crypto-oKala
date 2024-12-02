@@ -59,18 +59,14 @@ builder.Services.AddTransient<ISymbolQueryService, SymbolQueryService>();
 
 builder.Services.AddQuartz(q =>
 {
-    // Just use the name of your job that you created in the Jobs folder.
     var jobKey = new JobKey("SendEmailJob");
     q.AddJob<StoreCryptoInfoJob>(opts => opts.WithIdentity(jobKey));
 
     q.AddTrigger(opts => opts
         .ForJob(jobKey)
         .WithIdentity("StoreCryptoInfoJob-trigger")
-        //This Cron interval can be described as "run every minute" (when second is zero)
         .WithCronSchedule(builder.Configuration.GetValue<string>("StoreCryptoInfoJobCron"))
-        
     );
-    
 });
 
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);

@@ -1,7 +1,6 @@
 using Cryptocurrency.Api.Infra.Jobs;
 using Cryptocurrency.Application.Configurations;
 using Cryptocurrency.Application.ExternalServices;
-using Cryptocurrency.Application.MapperProfiles;
 using Cryptocurrency.Application.QueryServices;
 using Cryptocurrency.Application.Usecases.Qoutes.GetQuotes;
 using Cryptocurrency.Domain.Entities.SymbolEntity.Services;
@@ -28,7 +27,6 @@ builder.Services.AddSingleton(currencyConfig);
 
 var defaultCryptoConfig = new DefaultCryptoCurrencyConfiguration
 {
-    DefaultCryptocurrencyId = builder.Configuration.GetValue<int>("DefaultCryptoCurrency:DefaultCryptoCurrencyId"),
     DefaultCryptocurrencyName = builder.Configuration.GetValue<string>("DefaultCryptoCurrency:DefaultCryptoCurrencyName")
 };
 
@@ -54,7 +52,6 @@ builder.Services.AddSingleton(coinMarketApiConfiguration);
 
 builder.Services.AddMemoryCache();
 
-builder.Services.AddAutoMapper(typeof(MapperProfile));
 
 builder.Services.AddTransient<ICryptocurrencyExternalService, CryptocurrencyExternalService>();
 builder.Services.AddSingleton<ISymbolRepository, SymbolRepository>();

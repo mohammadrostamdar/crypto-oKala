@@ -8,7 +8,6 @@ namespace Cryptocurrency.Application.Configurations
 {
     public class DefaultCryptoCurrencyConfiguration
     {
-        public int DefaultCryptocurrencyId { get; set; }
         public string DefaultCryptocurrencyName { get; set; }
     }
 }

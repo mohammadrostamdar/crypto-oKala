@@ -1,13 +1,9 @@
-﻿using AutoMapper;
-using Cryptocurrency.Application.ExternalServices;
-using Cryptocurrency.Application.ExternalServices.Models;
+﻿using Cryptocurrency.Application.ExternalServices;
 using Cryptocurrency.Domain.Entities.SymbolEntity;
 using Cryptocurrency.Domain.Entities.SymbolEntity.DomainEvents.SymbolEvents;
 using Cryptocurrency.Domain.Entities.SymbolEntity.Models;
 using Cryptocurrency.Domain.Entities.SymbolEntity.Services;
 using MediatR;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Cryptocurrency.Application.Usecases.Qoutes.SaveQuotes
 {

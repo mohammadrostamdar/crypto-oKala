@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Cryptocurrency.Application.Dtos;
+﻿using Cryptocurrency.Application.Dtos;
 using Cryptocurrency.Application.Extentions;
 using Cryptocurrency.Application.QueryServices;
 using Cryptocurrency.Domain.Entities.SymbolEntity;
@@ -12,15 +11,12 @@ namespace Cryptocurrency.Infrastructure.QueryServices
     {
         private readonly ILogger<SymbolQueryService> _logger;
         private readonly IMemoryCache _memoryCache;
-        private readonly IMapper _mapper;
         public SymbolQueryService(
             ILogger<SymbolQueryService> logger,
-            IMemoryCache memoryCache,
-            IMapper mapper)
+            IMemoryCache memoryCache)
         {
             _logger = logger;
             _memoryCache = memoryCache;
-            _mapper = mapper;
         }
 
         public async Task<SymbolDto> GetSymbolAsync(string name)
